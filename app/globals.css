@@ -1,0 +1,19 @@
+@import "tailwindcss";
+@import "../lib/design-tokens.css";
+
+@theme inline {
+  --color-background: var(--color-canvas);
+  --color-foreground: var(--color-whiteout);
+  --font-sans: var(--font-inter);
+  --font-display: var(--font-anton);
+  --font-cursive: var(--font-caveat);
+}
+
+body {
+  background: var(--color-canvas);
+  color: var(--color-whiteout);
+  font-family: var(--font-inter), system-ui, sans-serif;
+  font-weight: 500;
+  font-size: 16px;
+  line-height: 1.5;
+}
