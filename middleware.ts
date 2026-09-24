@@ -1,8 +1,9 @@
 import { createServerClient } from "@supabase/ssr";
 import { NextResponse, type NextRequest } from "next/server";
+import { isSupabaseMode } from "@/lib/data/index";
 
 export async function middleware(request: NextRequest) {
-  if (process.env.NEXT_PUBLIC_USE_SUPABASE !== "true") {
+  if (!isSupabaseMode()) {
     return NextResponse.next();
   }
 

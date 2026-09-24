@@ -69,6 +69,20 @@ npm run dev
 
 (localStorage, mock Google)
 
-## Supabase 배포
+## Supabase 배포 (Vercel)
 
-`NEXT_PUBLIC_USE_PRISMA` 끄고 Supabase env 사용. [supabase/migrations/](supabase/migrations/) 참고.
+Vercel **Environment Variables** (Production):
+
+- `NEXT_PUBLIC_USE_SUPABASE=true`
+- `NEXT_PUBLIC_USE_PRISMA=false`
+- `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
+
+**Supabase → Authentication → URL Configuration** (Production 도메인 예: `https://your-app.vercel.app`):
+
+- **Site URL**: `https://your-app.vercel.app`
+- **Redirect URLs**: `https://your-app.vercel.app/auth/callback`
+
+Google OAuth는 Supabase Provider 설정 + Google Cloud redirect  
+`https://YOUR_PROJECT_REF.supabase.co/auth/v1/callback`
+
+스키마: [supabase/migrations/](supabase/migrations/)
