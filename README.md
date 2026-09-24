@@ -77,10 +77,25 @@ Vercel **Environment Variables** (Production):
 - `NEXT_PUBLIC_USE_PRISMA=false`
 - `NEXT_PUBLIC_SUPABASE_URL`, `NEXT_PUBLIC_SUPABASE_ANON_KEY`
 
-**Supabase → Authentication → URL Configuration** (Production 도메인 예: `https://your-app.vercel.app`):
+Supabase **Project Settings → API**에서 복사:
 
-- **Site URL**: `https://your-app.vercel.app`
-- **Redirect URLs**: `https://your-app.vercel.app/auth/callback`
+- URL: `https://<project-ref>.supabase.co` (끝에 `/` 없음)
+- Key: **anon** `public` (JWT `eyJ…` 또는 **Publishable** `sb_publishable_…`)
+- ❌ **service_role** / **sb_secret_** 는 Vercel에 넣지 않음
+- ❌ 값 앞뒤 따옴표 `"..."` 붙이지 않음
+
+`Invalid API key` → URL·키가 **같은 프로젝트** 쌍인지 확인 후 **Redeploy**.
+
+**Supabase → Authentication → URL Configuration**
+
+실제 **사이트 주소**만 넣습니다. (`vercel.com/팀명/프로젝트` 대시보드 URL ❌)
+
+예: `https://study-community-site-eight.vercel.app`
+
+- **Site URL**: `https://study-community-site-eight.vercel.app`
+- **Redirect URLs** (한 줄씩 추가):
+  - `https://study-community-site-eight.vercel.app/auth/callback`
+  - `http://localhost:3000/auth/callback` (로컬 개발용)
 
 Google OAuth는 Supabase Provider 설정 + Google Cloud redirect  
 `https://YOUR_PROJECT_REF.supabase.co/auth/v1/callback`
